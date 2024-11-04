@@ -1,4 +1,105 @@
 {
   "name": "gitwit",
-  "packageManager": "yarn@4.4.1"
+  "displayName": "GitWit",
+  "description": "An AI Git Commit Message Generator",
+  "version": "0.2.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "undefined_publisher.gitwit.extension.generateCommitMessage",
+        "title": "GitWit: Generate Commit Message"
+      },
+      {
+        "command": "undefined_publisher.gitwit.extension.welcome",
+        "title": "GitWit: Welcome"
+      },
+      {
+        "command": "undefined_publisher.gitwit.extension.selectModel",
+        "title": "GitWit: Select AI Model"
+      },
+      {
+        "command": "undefined_publisher.gitwit.extension.apikey",
+        "title": "GitWit: Enter API Key"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "GitWit Settings",
+      "properties": {
+        "undefined_publisher.gitwit.selectedModel": {
+          "type": "string",
+          "default": "gpt-4o",
+          "enum": [
+            "gpt-4o",
+            "gpt-4o-mini",
+            "o1-preview",
+            "o1-mini",
+            "gpt-4-turbo",
+            "gpt-4",
+            "gpt-3.5-turbo",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro",
+            "gemini-1.0-pro"
+          ],
+          "description": "Select the AI model you want to use for generating commit messages."
+        },
+        "undefined_publisher.gitwit.mainModel": {
+          "type": "string",
+          "default": "ChatGPT",
+          "enum": [
+            "ChatGPT",
+            "Gemini"
+          ],
+          "description": "Select the AI model you want to use for generating commit messages."
+        },
+        "undefined_publisher.gitwit.apiKey": {
+          "type": "string",
+          "description": "Enter the API key for the selected AI model.",
+          "default": ""
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "yarn run check-types && yarn run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "yarn run check-types && yarn run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@vscode/vsce": "^3.2.1",
+    "openai": "^4.70.2",
+    "simple-git": "^3.26.0"
+  }
 }
