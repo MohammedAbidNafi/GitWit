@@ -152,10 +152,10 @@ export function activate(context: vscode.ExtensionContext) {
 
               console.log(response);
             } catch (error: any) {
-              error = true;
               vscode.window.showErrorMessage(
-                "Error fetching uncommitted changes: " + error.message
+                "Error fetching uncommitted changes: " + error
               );
+              console.error(error);
             }
           }
         )
