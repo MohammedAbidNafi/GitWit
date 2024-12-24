@@ -9,10 +9,10 @@ export function activate(context: vscode.ExtensionContext) {
   let response: string = "";
 
   let disposable = vscode.commands.registerCommand(
-    "undefined_publisher.gitwit.extension.generateCommitMessage",
+    "MohammedAbidNafi.gitwit.extension.generateCommitMessage",
     async () => {
       const config = vscode.workspace.getConfiguration(
-        "undefined_publisher.gitwit"
+        "MohammedAbidNafi.gitwit"
       );
       let selectedModel = config.get("selectedModel", "");
       let mainModel = config.get("mainModel", "");
@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
                       // Open the settings for entering the API key
                       vscode.commands.executeCommand(
                         "workbench.action.openSettings",
-                        "undefined_publisher.gitwit.apiKey"
+                        "MohammedAbidNafi.gitwit.apiKey"
                       );
                     });
                   return;
@@ -122,7 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
                       // Open the settings for entering the API key
                       vscode.commands.executeCommand(
                         "workbench.action.openSettings",
-                        "undefined_publisher.gitwit.apiKey"
+                        "MohammedAbidNafi.gitwit.apiKey"
                       );
                     });
                   return;
@@ -145,7 +145,7 @@ export function activate(context: vscode.ExtensionContext) {
                   .then(() => {
                     vscode.commands.executeCommand(
                       "workbench.action.openSettings",
-                      "undefined_publisher.gitwit.mainModel"
+                      "MohammedAbidNafi.gitwit.mainModel"
                     );
                   });
               }
@@ -183,11 +183,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "undefined_publisher.gitwit.extension.welcome",
+      "MohammedAbidNafi.gitwit.extension.welcome",
       () => {
         vscode.commands.executeCommand(
           `workbench.action.openWalkthrough`,
-          "undefined_publisher.gitwit",
+          "MohammedAbidNafi.gitwit",
           false
         );
       }
@@ -198,7 +198,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "undefined_publisher.gitwit.extension.selectModel",
+      "MohammedAbidNafi.gitwit.extension.selectModel",
       async function () {
         const Model = await vscode.window.showQuickPick(["ChatGPT", "Gemini"], {
           placeHolder: "Select the AI model of your choice",
@@ -224,7 +224,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.workspace
               .getConfiguration()
               .update(
-                "undefined_publisher.gitwit.selectedModel",
+                "MohammedAbidNafi.gitwit.selectedModel",
                 pickedModel,
                 vscode.ConfigurationTarget.Global
               );
@@ -232,7 +232,7 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.workspace
               .getConfiguration()
               .update(
-                "undefined_publisher.gitwit.mainModel",
+                "MohammedAbidNafi.gitwit.mainModel",
                 Model,
                 vscode.ConfigurationTarget.Global
               );
@@ -255,14 +255,14 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.workspace
               .getConfiguration()
               .update(
-                "undefined_publisher.gitwit.selectedModel",
+                "MohammedAbidNafi.gitwit.selectedModel",
                 pickedModel,
                 vscode.ConfigurationTarget.Global
               );
             vscode.workspace
               .getConfiguration()
               .update(
-                "undefined_publisher.gitwit.mainModel",
+                "MohammedAbidNafi.gitwit.mainModel",
                 Model,
                 vscode.ConfigurationTarget.Global
               );
@@ -277,7 +277,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "undefined_publisher.gitwit.extension.apikey",
+      "MohammedAbidNafi.gitwit.extension.apikey",
       async function () {
         const inputApiKey = await vscode.window.showInputBox({
           prompt: "Enter your API Key",
@@ -288,7 +288,7 @@ export function activate(context: vscode.ExtensionContext) {
           vscode.workspace
             .getConfiguration()
             .update(
-              "undefined_publisher.gitwit.apiKey",
+              "MohammedAbidNafi.gitwit.apiKey",
               inputApiKey,
               vscode.ConfigurationTarget.Global
             );
