@@ -1,33 +1,31 @@
 {
   "name": "gitwit",
-  "displayName": "GitWit",
+  "displayName": "Gitwit: AI-Powered Git Commit Message Generator",
   "description": "An AI Git Commit Message Generator",
-  "version": "0.3.0",
-  "license": "MIT",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "publisher": "MohammedAbidNafi",
   "engines": {
     "vscode": "^1.93.0"
   },
   "categories": [
-    "Other"
+    "AI",
+    "Snippets"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "undefined_publisher.gitwit.extension.generateCommitMessage",
+        "command": "MohammedAbidNafi.gitwit.extension.generateCommitMessage",
         "title": "GitWit: Generate Commit Message"
       },
       {
-        "command": "undefined_publisher.gitwit.extension.welcome",
-        "title": "GitWit: Welcome"
-      },
-      {
-        "command": "undefined_publisher.gitwit.extension.selectModel",
+        "command": "MohammedAbidNafi.gitwit.extension.selectModel",
         "title": "GitWit: Select AI Model"
       },
       {
-        "command": "undefined_publisher.gitwit.extension.apikey",
+        "command": "MohammedAbidNafi.gitwit.extension.apikey",
         "title": "GitWit: Enter API Key"
       }
     ],
@@ -35,7 +33,7 @@
       "type": "object",
       "title": "GitWit Settings",
       "properties": {
-        "undefined_publisher.gitwit.selectedModel": {
+        "MohammedAbidNafi.gitwit.selectedModel": {
           "type": "string",
           "default": "gpt-4o",
           "enum": [
@@ -52,7 +50,7 @@
           ],
           "description": "Select the AI model you want to use for generating commit messages."
         },
-        "undefined_publisher.gitwit.mainModel": {
+        "MohammedAbidNafi.gitwit.mainModel": {
           "type": "string",
           "default": "ChatGPT",
           "enum": [
@@ -61,7 +59,7 @@
           ],
           "description": "Select the AI model you want to use for generating commit messages."
         },
-        "undefined_publisher.gitwit.apiKey": {
+        "MohammedAbidNafi.gitwit.apiKey": {
           "type": "string",
           "description": "Enter the API key for the selected AI model.",
           "default": ""
