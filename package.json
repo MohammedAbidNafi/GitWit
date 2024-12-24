@@ -3,7 +3,7 @@
   "displayName": "Gitwit: AI-Powered Git Commit Message Generator",
   "description": "An AI Git Commit Message Generator",
   "version": "1.0.0",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "publisher": "MohammedAbidNafi",
   "engines": {
     "vscode": "^1.93.0"
