@@ -56,7 +56,30 @@ export function activate(context: vscode.ExtensionContext) {
                 const fileExtension = path.extname(file).toLowerCase();
 
                 // Only log the file path for image file types (.jpeg, .jpg, .png)
-                if ([".jpeg", ".jpg", ".png"].includes(fileExtension)) {
+                if (
+                  [
+                    ".jpeg",
+                    ".jpg",
+                    ".png",
+                    ".webp",
+                    ".heic",
+                    ".gif",
+                    ".bmp",
+                    ".tiff",
+                    ".svg",
+                    ".mp4",
+                    ".avi",
+                    ".mov",
+                    ".wmv",
+                    ".flv",
+                    ".mkv",
+                    ".webm",
+                    ".mpg",
+                    ".mpeg",
+                    ".3gp",
+                    ".m4v",
+                  ].includes(fileExtension)
+                ) {
                   allDiffs += `\n+++ ${file} +++\n`;
                 } else {
                   // For non-image files, read the content and append it
