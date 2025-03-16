@@ -39,8 +39,9 @@ The “scope” field should be a noun that represents the part of the codebase 
 
 For example, if the commit changes the login page, the scope could be “login”. If the commit affects multiple areas of the codebase, “global” or “all” could be used as the scope.
 
+And every message should be in small letters.
 Example of a commit message:
-feat(gallery): Remove redundant code
+feat(gallery): add ability to delete photos
 
 `,
       },
